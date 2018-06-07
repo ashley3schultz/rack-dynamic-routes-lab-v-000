@@ -5,9 +5,17 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      input = req.params["item"]
-      item = @@items.find {|i| i.name == input.strip.downcase}
-        resp.write "#{item.price}"
+ 
+      song_title = req.path.split("/songs/").last #turn /songs/Sorry into Sorry
+      song = @@songs.find{|s| s.title == song_title}
+ 
+      resp.write song.artist
+    end
+
+
+
+
+        
     else
       resp.write "page Not Found"
       resp.status = 404
