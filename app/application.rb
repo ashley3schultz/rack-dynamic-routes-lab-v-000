@@ -7,10 +7,9 @@ attr_accessor :name, :price
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-
       item_name = req.path.split("/items/").last
       item_id = @@items.find{|i| i.name == item_name}
-
+binding.pry
       resp.write item_id.price
     else
       resp.write "Route not found"
