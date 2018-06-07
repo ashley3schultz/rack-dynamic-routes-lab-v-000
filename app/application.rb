@@ -16,5 +16,6 @@ attr_accessor :name, :price
       resp.write "page Not Found"
       resp.status = 404
     end
+    resp.finish
   end
 end
