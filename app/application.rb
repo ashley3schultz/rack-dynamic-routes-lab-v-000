@@ -6,7 +6,7 @@ class Application
 
     if req.path.match(/items/)
       input = req.params["item"]
-      @@items.find{ |i| i.name == input.strip.downcase
+      @@items.find {|i| i.name == input.strip.downcase}
         resp.write "#{item}\n"
       end
     else
@@ -14,4 +14,4 @@ class Application
       resp.status = 404
     end
   end
-end 
+end
