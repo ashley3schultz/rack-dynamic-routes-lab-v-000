@@ -1,5 +1,4 @@
 class Application
-attr_accessor :name, :price
   @@items = []
 
   def call(env)
@@ -8,9 +7,9 @@ attr_accessor :name, :price
 
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if @@items.include?(item_name)
-        item = @@items.detect { |i| i.name == item_name}
-        resp.write item.price
+      if Item.items.include?(item_name)
+        i = Item.items.detect { |i| i.name == item_name}
+        resp.write i.price
         resp.status = 200
       else
         resp.write "Item not found"
