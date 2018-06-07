@@ -11,11 +11,7 @@ class Application
         i = @@items.detect { |i| i.name == item_name}
         resp.write i.price
         resp.status = 200
-      
-      if @@items.include?(item_name)
-        i = @@items.detect { |i| i.name == item_name}
-        resp.write i.price.to_s
-        resp.status = 200
+
       else
         resp.write "Item not found"
         resp.status = 400
