@@ -19,7 +19,7 @@ attr_accessor :name, :price
 
     def price
       @price
-    end 
+    end
     resp.finish
   end
 end
