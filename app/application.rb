@@ -11,14 +11,14 @@ attr_accessor :name, :price
       if @@items.include?(item_name)
         item = @@items.detect { |i| i.name == item_name}
         resp.write item.price
-        resp.status = 200
+        @resp.status = 200
       else
         resp.write "Item not found"
-        resp.status = 400
+        @resp.status = 400
       end
     else
       resp.write "Route not found"
-      resp.status = 404
+      @resp.status = 404
     end
     resp.finish
   end
