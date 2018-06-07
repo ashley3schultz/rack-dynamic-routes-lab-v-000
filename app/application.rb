@@ -9,7 +9,6 @@ class Application
       if @@items.include?(item_name)
         i = @@items.detect { |i| i.name == item_name}
         resp.write i.price.to_s
-        binding.pry
         resp.status = 200
       else
         resp.write "Item not found"
