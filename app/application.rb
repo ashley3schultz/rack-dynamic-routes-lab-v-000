@@ -10,7 +10,7 @@ attr_accessor :name, :price
       item_name = req.path.split("/items/").last
       if @@items.include?(item_name)
         item = @@items.detect{|i| i.name == item_name}
-        return item.price
+        item.price
       else
         resp.write "Item not found"
         resp.status = 400
