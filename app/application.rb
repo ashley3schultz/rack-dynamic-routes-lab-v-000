@@ -11,8 +11,9 @@ attr_accessor :name, :price
       if @@items.include?(item_name)
         item_id = @@items.find{|i| i.name == item_name}
         resp.write item_id.price
-      else 
+      else
         resp.status = 400
+      end
     else
       resp.write "Route not found"
       resp.status = 404
