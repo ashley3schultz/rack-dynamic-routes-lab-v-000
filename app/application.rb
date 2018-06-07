@@ -8,7 +8,6 @@ class Application
       input = req.params["item"]
       item = @@items.find {|i| i.name == input.strip.downcase}
         resp.write "#{item.price}"
-      end
     else
       resp.write "page Not Found"
       resp.status = 404
